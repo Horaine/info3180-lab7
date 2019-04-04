@@ -40,6 +40,32 @@ const Home = Vue.component('home', {
     }
 });
 
+
+const Uploadform = Vue.component('upload-form', {
+   template: `
+    <html>
+        <head>
+            <body>
+            <form>
+                <div>
+                    <h1>Upload Form</h1>
+                </div>
+                <textarea placeholder= Add text here...>Description</textarea><br />
+                <div>
+                    Photo Upload
+                </div>
+                <button type="submit" value="Submit">Submit</button>
+                </form>
+            </form>
+            </body>
+        </head>
+    </html>
+   `,
+    data: function() {
+       return {}
+    }
+});
+
 const NotFound = Vue.component('not-found', {
     template: `
     <div>
