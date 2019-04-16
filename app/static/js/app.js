@@ -46,7 +46,7 @@ const Uploadform = Vue.component('upload-form', {
     <html>
         <head>
             <body>
-            <form>
+            <form @submit.prevent="uploadPhoto">
                 <div>
                     <h1>Upload Form</h1>
                 </div>
@@ -64,6 +64,34 @@ const Uploadform = Vue.component('upload-form', {
     data: function() {
        return {}
     }
+    
+});
+
+let app = new Vue({
+    el: "#app",
+    router
+    
+    let uploadForm = document.getElementById('uploadForm');
+    let form_data = new FormData(uploadForm);
+    
+    fetch("/api/upload", {
+ method: 'POST',
+ body: form_data,
+ headers: {
+ 'X-CSRFToken': token
+ },
+ credentials: 'same-origin'
+})
+ .then(function (response) {
+ return response.json();
+ })
+ .then(function (jsonResponse) {
+ 
+/ display a success message
+ console.log(jsonResponse);
+ })
+ .catch(function (error) {
+ console.log(error);
 });
 
 const NotFound = Vue.component('not-found', {

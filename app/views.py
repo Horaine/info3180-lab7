@@ -4,6 +4,10 @@ Jinja2 Documentation:    http://jinja.pocoo.org/2/documentation/
 Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
+from flask_wtf.csrf import CSRFProtect
+app = Flask(__name__)
+csrf = CSRFProtect(app)
+
 
 from app import app
 from flask import render_template, request
